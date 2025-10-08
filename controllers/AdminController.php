@@ -94,8 +94,14 @@ class AdminController extends Controller
     $jumlahPerempuan = \app\models\SiswaKelas::find()
         ->where(['jk' => 'P']) // P = Perempuan
         ->count();
+        $totalSiswa = $jumlahLaki + $jumlahPerempuan;
 
          $kelasList = \app\models\Kelas::find()->all();
+         $jumlahKelas = \app\models\Kelas::find()->count();
+         $jumlahWaliGuru = \app\models\Kelas::find()
+    ->select('wali_guru_id')
+    ->distinct()
+    ->count();
 
     $rankingData = [];
     if ($kelas_id && $semester) {
@@ -164,6 +170,9 @@ class AdminController extends Controller
          'kelasList' => $kelasList,
         'kelas_id' => $kelas_id,
         'semester' => $semester,
+        'jumlahKelas' => $jumlahKelas,
+         'totalSiswa' => $totalSiswa,
+          'jumlahWaliGuru' => $jumlahWaliGuru, 
         'rankingData' => $rankingData
     ]);
 }

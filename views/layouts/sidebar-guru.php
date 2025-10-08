@@ -173,13 +173,16 @@ $this->registerJs("
                                 </ul>
                             </div>
                         </li>
-
-
-
                         <li class="nav-item">
                             <a href="<?= Url::to(['kejadian-khusus/index']) ?>"><i
                                     class="bi bi-exclamation-triangle"></i>
                                 <p>Kejadian Khusus</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= Url::to(['evaluasi/index']) ?>">
+                                <i class="bi bi-mortarboard"></i>
+                                <p>Evaluasi</p>
                             </a>
                         </li>
                         <li class="nav-section">

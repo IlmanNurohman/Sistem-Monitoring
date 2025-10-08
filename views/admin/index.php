@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
                             <div class=" col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Jumlah Siswa</p>
-                                    <h4 class="card-title"></h4>
+                                    <h4 class="card-title"><?= $totalSiswa ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ use yii\widgets\ActiveForm;
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Kelas</p>
-                                    <h4 class="card-title"></h4>
+                                    <h4 class="card-title"><?= $jumlahKelas ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -60,13 +60,13 @@ use yii\widgets\ActiveForm;
                         <div class="row align-items-center">
                             <div class="col-icon">
                                 <div class="icon-big text-center icon-success bubble-shadow-small">
-                                    <i class="bi bi-repeat"></i>
+                                    <i class="bi bi-person-video3"></i>
                                 </div>
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
-                                    <p class="card-category">Tanggapi</p>
-                                    <h4 class="card-title"></h4>
+                                    <p class="card-category">Guru</p>
+                                    <h4 class="card-title"><?= $jumlahWaliGuru ?></h4>
                                 </div>
                             </div>
                         </div>

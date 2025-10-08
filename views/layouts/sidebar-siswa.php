@@ -171,7 +171,13 @@ $this->registerJs("
                         <li class="nav-item"> <a href="<?= Url::to(['kejadian-khusus/my-pengajuan']) ?>"><i
                                     class="bi bi-exclamation-triangle"></i>
                                 <p>Kejadian Khusus</p>
-                            </a> </li>
+                            </a>
+                        </li>
+                        <li class="nav-item"> <a href="<?= Url::to(['evaluasi-siswa/index']) ?>">
+                                <i class="bi bi-mortarboard"></i>
+                                <p>Evaluasi</p>
+                            </a>
+                        </li>
                         <li class="nav-section">
                             <span class="sidebar-mini-icon"><i class="bi bi-three-dots"></i></span>
                             <h4 class="text-section">Layanan</h4>

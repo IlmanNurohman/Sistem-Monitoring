@@ -158,30 +158,31 @@ public function actionProfile()
 
     $model = $this->findModel(Yii::$app->user->id);
 
+    // Jalankan hanya saat form disubmit
     if ($model->load(Yii::$app->request->post())) {
         $model->file_foto = \yii\web\UploadedFile::getInstance($model, 'file_foto');
 
         // Update foto
         if ($model->file_foto && $model->uploadFoto()) {
             $model->save(false);
+            Yii::$app->session->setFlash('success', 'Profil berhasil diperbarui.');
         } else {
-            // Kalau ada password baru, update password_hash
+            // Update password jika ada perubahan
             if (!empty($model->new_password)) {
                 $model->setPassword($model->new_password);
             }
-            $model->save();
+
+            if ($model->save()) {
+                Yii::$app->session->setFlash('success', 'Profil berhasil diperbarui.');
+            } else {
+                Yii::$app->session->setFlash('error', 'Gagal memperbarui profil!');
+            }
         }
 
-        Yii::$app->session->setFlash('success', 'Profil berhasil diperbarui.');
-    } elseif ($model->save()) {
-        Yii::$app->session->setFlash('success', 'Profil berhasil diperbarui.');
-    } else {
-        Yii::$app->session->setFlash('error', 'Gagal memperbarui profil!');
-    
-        
-        return $this->refresh();
+        return $this->refresh(); // hanya refresh setelah ada submit
     }
 
+    // Saat hanya membuka halaman (tanpa submit), tidak set flash apa pun
     return $this->render('profile', [
         'model' => $model,
     ]);
