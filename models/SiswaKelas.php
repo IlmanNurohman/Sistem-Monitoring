@@ -135,4 +135,10 @@ class SiswaKelas extends \yii\db\ActiveRecord
     {
         $this->jk = self::JK_P;
     }
+
+    public function getSiswa()
+{
+    return $this->hasOne(\app\models\SiswaKelas::class, ['id' => 'siswa_id']);
+}
+
 }

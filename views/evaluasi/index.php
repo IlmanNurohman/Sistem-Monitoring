@@ -24,28 +24,34 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'siswa_kelas_id',
-            'wali_guru_id',
-            'aspek',
-            'nilai',
-            //'keterangan:ntext',
-            //'tanggal',
-            //'created_at',
-            //'updated_at',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Evaluasi $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
-            ],
+    'dataProvider' => $dataProvider,
+   //'filterModel' => $searchModel,//
+    'columns' => [
+        [
+            'class' => 'yii\grid\SerialColumn',
+            'header' => 'No',
         ],
-    ]); ?>
+
+        [
+            'attribute' => 'siswa_kelas_id',
+            'label' => 'Nama Siswa',
+            'value' => function ($model) {
+                return $model->siswaKelas ? $model->siswaKelas->nama : '-';
+            },
+        ],
+        'aspek',
+        'nilai',
+        //'keterangan:ntext',
+        //'tanggal',
+
+        [
+            'class' => ActionColumn::className(),
+            'urlCreator' => function ($action, Evaluasi $model, $key, $index, $column) {
+                return Url::toRoute([$action, 'id' => $model->id]);
+            }
+        ],
+    ],
+]); ?>
 
 
 </div>
