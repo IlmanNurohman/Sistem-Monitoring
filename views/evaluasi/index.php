@@ -10,20 +10,49 @@ use yii\grid\GridView;
 /** @var app\models\EvaluasiSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Evaluasis';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Evaluasi';
+
 ?>
-<div class="evaluasi-index">
+<div class="container" style="padding-top: 20px;">
+    <div class="page-inner">
+        <div class="page-header">
+            <h3 class="fw-bold mb-3">Sekolah</h3>
+            <ul class="breadcrumbs mb-3">
+                <li class="nav-home">
+                    <a href="#">
+                        <i class="bi bi-mortarboard"></i>
+                    </a>
+                </li>
+                <li class="separator">
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Evaluasi</a>
+                </li>
+            </ul>
+        </div>
+        <p>
+            <?= Html::a('Create Evaluasi', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+        <div class="row">
+            <div class="  col-mb-12">
+                <div class="card card-round">
+                    <div class="card-header">
+                        <div
+                            class="card-head-row card-tools-still-right d-flex justify-content-between align-items-center">
+                            <div class="card-title">
+                                <?= Html::encode($this->title) ?>
+                            </div>
+                        </div>
+                    </div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="  col-mb-12">
+                                <div class="table-responsive" style="overflow-x:auto; white-space:nowrap;">
+                                    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Evaluasi', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
+                                    <?= GridView::widget([
     'dataProvider' => $dataProvider,
    //'filterModel' => $searchModel,//
     'columns' => [
@@ -46,6 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         [
             'class' => ActionColumn::className(),
+            'header' => 'Aksi',
             'urlCreator' => function ($action, Evaluasi $model, $key, $index, $column) {
                 return Url::toRoute([$action, 'id' => $model->id]);
             }
@@ -54,4 +84,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ]); ?>
 
 
-</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

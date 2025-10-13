@@ -23,7 +23,6 @@ use yii\helpers\Html;
         <div class="row">
             <div class="  col-mb-12">
                 <div class="card card-round">
-
                     <div class="card-header">
                         <div class="card-head-row card-tools-still-right">
                             <div class="card-title"> Data <?= Html::encode($model->nama_kelas) ?></div>
